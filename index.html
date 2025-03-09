@@ -3,58 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CTF ISBN Challenge</title>
+    <title>CTF Challenge: Polymath's Mystery</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
         }
-        .qr-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .qr-code {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        img {
+        #qrcode {
+            margin: 20px auto;
             width: 150px;
             height: 150px;
-            margin-bottom: 10px;
-        }
-        a {
-            text-decoration: none;
-            color: #007BFF;
-            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>CTF Challenge: Find the Books</h1>
-    <p>Scan the QR codes below or click on them to find the corresponding books.</p>
-    <div class="qr-container">
-        <div class="qr-code">
-            <a href="https://www.google.com/search?q=978-0-7432-7356-5" target="_blank">
-                <img src="isbn_qr_1.png" alt="QR Code 1">
-            </a>
-            <p>QR Code 1</p>
-        </div>
-        <div class="qr-code">
-            <a href="https://www.google.com/search?q=978-0-7434-8982-0" target="_blank">
-                <img src="isbn_qr_2.png" alt="QR Code 2">
-            </a>
-            <p>QR Code 2</p>
-        </div>
-        <div class="qr-code">
-            <a href="https://www.google.com/search?q=0-7432-7356-7" target="_blank">
-                <img src="isbn_qr_3.png" alt="QR Code 3">
-            </a>
-            <p>QR Code 3</p>
-        </div>
-    </div>
+    <h1>CTF Challenge: Polymath's Mystery</h1>
+    <p>Scan the QR code below to get the ISBN. Use it to find the book, then identify the oddest invention of its subject.</p>
+    <div id="qrcode"></div>
+    <p><strong>Hint:</strong> This polymath was a genius across multiple unrelated fields.</p>
+
+    <script>
+        // ISBN for "Leonardo da Vinci" by Walter Isaacson
+        var isbn = "978-1-5011-3915-4";
+        var qrCode = new QRCode(document.getElementById("qrcode"), {
+            text: "https://www.google.com/search?q=" + isbn,
+            width: 150,
+            height: 150
+        });
+    </script>
 </body>
 </html>
